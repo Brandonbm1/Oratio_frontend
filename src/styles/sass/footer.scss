@@ -1,0 +1,43 @@
+@import "./variables";
+
+.footer {
+  position: absolute;
+  width: 100%;
+  height: 5rem;
+  top: calc(100vh - 5rem);
+  background-color: $colorPrincipal;
+}
+.social {
+  display: flex;
+  list-style: none;
+  &_item {
+    display: flex;
+    align-items: center;
+  }
+  &_link {
+    text-decoration: none;
+    color: $actionColor;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+    width: 100%;
+    transition: 0.3s ease all;
+    &-icon {
+      box-sizing: content-box;
+      padding: 5px;
+      font-size: 2rem;
+      border: 2px solid $actionColor;
+      border-radius: 20%;
+      transition: 0.3s ease all;
+    }
+    &:hover {
+      color: $colorPrincipal;
+    }
+    &:hover &-icon {
+      border: 2px solid $colorPrincipal;
+      background-color: $actionColor;
+    }
+  }
+}

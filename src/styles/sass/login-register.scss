@@ -1,0 +1,32 @@
+@import "variables";
+
+.loginRegister {
+  // display: flex;
+  margin: 2rem 0.5rem;
+  padding: 0 6rem;
+  &_title {
+    background-color: $colorPrincipal;
+    max-height: 2rem;
+    width: 100%;
+    padding: 0 1rem;
+    border-radius: 0.25rem;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    &-text {
+      color: $colorSecundario;
+      line-height: 2rem;
+      font-size: 2rem;
+    }
+  }
+  &_body {
+    background-color: $colorPrincipal;
+    margin-top: 3rem;
+    min-height: 15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    border-radius: 1rem;
+  }
+}

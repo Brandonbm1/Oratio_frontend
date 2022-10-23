@@ -1,0 +1,31 @@
+.loginRegister {
+  margin: 2rem 0.5rem;
+  padding: 0 6rem;
+}
+.loginRegister_title {
+  background-color: #283e78;
+  max-height: 2rem;
+  width: 100%;
+  padding: 0 1rem;
+  border-radius: 0.25rem;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.loginRegister_title-text {
+  color: #8d9ee4;
+  line-height: 2rem;
+  font-size: 2rem;
+}
+.loginRegister_body {
+  background-color: #283e78;
+  margin-top: 3rem;
+  min-height: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  border-radius: 1rem;
+}
+
+/*# sourceMappingURL=login-register.css.map */
