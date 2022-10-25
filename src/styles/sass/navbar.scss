@@ -4,19 +4,19 @@
   height: 7rem;
   display: flex;
   align-items: center;
-  // position: relative;
+  justify-content: center;
   &_details {
     height: calc(100vh - 12rem);
     width: 20rem;
     position: absolute;
     background: $colorPrincipal;
     top: 7rem;
-    margin-left: -20rem;
+    margin-top: -100vh;
     border-top: 1px solid $colorSecundario;
     border-bottom: 1px solid $colorSecundario;
-    transition: 0.3s ease margin-left;
+    transition: 0.4s ease margin-top;
     &.active {
-      margin-left: unset;
+      margin-top: unset;
     }
   }
   &_list {
@@ -46,6 +46,7 @@
       padding: 0 1rem;
       &.logo {
         font-weight: 400;
+        position: relative;
       }
       &::after {
         content: "";

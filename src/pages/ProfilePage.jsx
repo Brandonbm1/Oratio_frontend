@@ -1,6 +1,7 @@
-import LoginRegisterLayout from "./LoginRegisterLayout";
+import LoginRegisterLayout from "../component/LoginRegisterLayout";
 import { IoMdPerson } from "react-icons/io";
 import { MdFacebook } from "react-icons/md";
+import { FaClipboardList } from "react-icons/fa";
 import { SiGithub, SiGoogle } from "react-icons/si";
 import { Link } from "react-router-dom";
 const Profile = () => {
@@ -18,7 +19,7 @@ const Profile = () => {
           </article>
           <article className="regularLogin">
             <Link to="/register">
-              <IoMdPerson className="regularLogin_icon" />
+              <FaClipboardList className="regularLogin_icon" />
             </Link>
             <Link to="/register" className="regularLogin_link">
               Registrarse

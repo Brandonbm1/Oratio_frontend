@@ -1,16 +1,19 @@
 .loginRegister {
+  display: flex;
+  flex-direction: column;
   margin: 2rem 0.5rem;
-  padding: 0 6rem;
 }
 .loginRegister_title {
   background-color: #283e78;
   max-height: 2rem;
-  width: 100%;
+  width: 60%;
   padding: 0 1rem;
   border-radius: 0.25rem;
   display: flex;
   justify-content: end;
   align-items: center;
+  align-self: center;
+  cursor: default;
 }
 .loginRegister_title-text {
   color: #8d9ee4;
@@ -21,11 +24,13 @@
   background-color: #283e78;
   margin-top: 3rem;
   min-height: 15rem;
+  width: 60%;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 3rem;
   border-radius: 1rem;
+  align-self: center;
 }
 
 /*# sourceMappingURL=login-register.css.map */

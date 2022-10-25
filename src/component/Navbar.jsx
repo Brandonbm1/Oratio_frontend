@@ -17,59 +17,61 @@ const Navbar = () => {
   };
   return (
     <nav className="navbar">
-      <NavbarDetails id="details" />
-      <ul className="navbar_list">
-        <li className="navbar_item">
-          <NavLink
-            to="/home"
-            className="navbar_item-link logo"
-            onClick={handleOpenDetails}
-          >
-            ORATIO
-          </NavLink>
-          <p className="navbar_item-sublogo">LSC</p>
-        </li>
-        <li className="navbar_item">
-          <NavLink
-            to="/home"
-            className="navbar_item-link"
-            onClick={handleOpenDetails}
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          >
-            <ImHome3 className="navbar_item-icon" />
-          </NavLink>
-        </li>
-        <li className="navbar_item">
-          <NavLink
-            to="/search"
-            className="navbar_item-link"
-            onClick={handleOpenDetails}
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          >
-            <FiSearch className="navbar_item-icon" />
-          </NavLink>
-        </li>
-        <li className="navbar_item">
-          <NavLink
-            to="/course"
-            className="navbar_item-link"
-            onClick={handleOpenDetails}
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          >
-            <BsBookHalf className="navbar_item-icon" />
-          </NavLink>
-        </li>
-        <li className="navbar_item">
-          <NavLink
-            to="/profile"
-            className="navbar_item-link"
-            onClick={handleOpenDetails}
-            style={({ isActive }) => (isActive ? activeStyle : undefined)}
-          >
-            <IoMdPerson className="navbar_item-icon" />
-          </NavLink>
-        </li>
-      </ul>
+      <div className="container">
+        <NavbarDetails id="details" />
+        <ul className="navbar_list">
+          <li className="navbar_item">
+            <NavLink
+              to="/home"
+              className="navbar_item-link logo"
+              onClick={handleOpenDetails}
+            >
+              ORATIO
+            </NavLink>
+            <p className="navbar_item-sublogo">LSC</p>
+          </li>
+          <li className="navbar_item">
+            <NavLink
+              to="/home"
+              className="navbar_item-link"
+              onClick={handleOpenDetails}
+              style={({ isActive }) => (isActive ? activeStyle : undefined)}
+            >
+              <ImHome3 className="navbar_item-icon" />
+            </NavLink>
+          </li>
+          <li className="navbar_item">
+            <NavLink
+              to="/search"
+              className="navbar_item-link"
+              onClick={handleOpenDetails}
+              style={({ isActive }) => (isActive ? activeStyle : undefined)}
+            >
+              <FiSearch className="navbar_item-icon" />
+            </NavLink>
+          </li>
+          <li className="navbar_item">
+            <NavLink
+              to="/course"
+              className="navbar_item-link"
+              onClick={handleOpenDetails}
+              style={({ isActive }) => (isActive ? activeStyle : undefined)}
+            >
+              <BsBookHalf className="navbar_item-icon" />
+            </NavLink>
+          </li>
+          <li className="navbar_item">
+            <NavLink
+              to="/profile"
+              className="navbar_item-link"
+              onClick={handleOpenDetails}
+              style={({ isActive }) => (isActive ? activeStyle : undefined)}
+            >
+              <IoMdPerson className="navbar_item-icon" />
+            </NavLink>
+          </li>
+        </ul>
+      </div>
     </nav>
   );
 };

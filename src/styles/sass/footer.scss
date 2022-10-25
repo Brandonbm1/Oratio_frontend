@@ -4,8 +4,10 @@
   position: absolute;
   width: 100%;
   height: 5rem;
-  top: calc(100vh - 5rem);
+  // top: calc(100vh - 5rem);
   background-color: $colorPrincipal;
+  display: flex;
+  justify-content: center;
 }
 .social {
   display: flex;

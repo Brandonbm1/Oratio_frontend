@@ -9,5 +9,9 @@
 }
 body {
   background-color: #efefef;
-  overflow-y: hidden;
+  // overflow-y: hidden;
+}
+.container {
+  max-width: 80%;
+  min-width: 60%;
 }

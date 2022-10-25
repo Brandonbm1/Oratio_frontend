@@ -1,5 +1,3 @@
-import React from "react";
-
 const LoginRegisterLayout = ({ children }) => {
   return (
     <section className="loginRegister">

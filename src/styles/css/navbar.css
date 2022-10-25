@@ -3,6 +3,7 @@
   height: 7rem;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .navbar_details {
   height: calc(100vh - 12rem);
@@ -10,13 +11,13 @@
   position: absolute;
   background: #283e78;
   top: 7rem;
-  margin-left: -20rem;
+  margin-top: -100vh;
   border-top: 1px solid #8d9ee4;
   border-bottom: 1px solid #8d9ee4;
-  transition: 0.3s ease margin-left;
+  transition: 0.4s ease margin-top;
 }
 .navbar_details.active {
-  margin-left: unset;
+  margin-top: unset;
 }
 .navbar_list {
   display: flex;
@@ -46,6 +47,7 @@
 }
 .navbar_item-link.logo {
   font-weight: 400;
+  position: relative;
 }
 .navbar_item-link::after {
   content: "";
