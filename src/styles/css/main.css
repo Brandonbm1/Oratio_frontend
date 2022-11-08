@@ -1,4 +1,6 @@
-* {
+*,
+::after,
+::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -10,12 +12,20 @@
 }
 
 body {
-  background-color: #efefef;
+  background-color: #fff8ea;
+  overflow-x: hidden;
 }
 
 .container {
-  max-width: 80%;
-  min-width: 60%;
+  width: 100%;
+  padding: 0 3rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 80%;
+    min-width: 60%;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

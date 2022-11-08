@@ -1,0 +1,46 @@
+@import "variables";
+
+.search {
+  display: flex;
+  flex-direction: column;
+  &_form {
+    margin: 2rem 0;
+    display: flex;
+    gap: 5%;
+    &-text {
+      max-width: 70%;
+      line-height: 3rem;
+      font-size: 2rem;
+      border: none;
+      outline: none;
+      border-radius: 0.5rem;
+      background-color: $colorSecundario;
+      color: $backgroundColor;
+      padding: 0 1rem;
+    }
+    &-button {
+      max-width: 30%;
+      padding: 0 1rem;
+      background-color: $colorSecundario;
+      color: $backgroundColor;
+      font-size: 1.5rem;
+      border: none;
+      border-radius: 0.5rem;
+      outline: none;
+      cursor: pointer;
+    }
+  }
+  &_result {
+    margin: 2rem 0 7rem;
+    &-video {
+      max-width: 100%;
+      min-width: 250px;
+    }
+    &-text {
+      font-size: 1.5rem;
+      text-transform: capitalize;
+      color: $colorPrincipal;
+      font-weight: 700;
+    }
+  }
+}

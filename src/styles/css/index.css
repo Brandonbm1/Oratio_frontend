@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Handlee&display=swap");
-* {
+*,
+::after,
+::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -12,92 +14,157 @@
 }
 
 body {
-  background-color: #efefef;
+  background-color: #fff8ea;
+  overflow-x: hidden;
 }
 
 .container {
-  max-width: 80%;
-  min-width: 60%;
+  width: 100%;
+  padding: 0 3rem;
 }
 
+@media (min-width: 768px) {
+  .container {
+    max-width: 80%;
+    min-width: 60%;
+  }
+}
 .navbar {
-  background-color: #283e78;
+  background-color: #594545;
   height: 7rem;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
-.navbar_details {
-  height: calc(100vh - 12rem);
-  width: 20rem;
-  position: absolute;
-  background: #283e78;
-  top: 7rem;
-  margin-top: -100vh;
-  border-top: 1px solid #8d9ee4;
-  border-bottom: 1px solid #8d9ee4;
-  transition: 0.4s ease margin-top;
-}
-.navbar_details.active {
-  margin-top: unset;
+.navbar_container {
+  display: flex;
 }
 .navbar_list {
-  display: flex;
-  align-items: center;
-  list-style: none;
-  width: 100%;
-  gap: 1rem;
-  position: relative;
-  overflow: hidden;
+  position: absolute;
+  top: -100vh;
+  right: 0rem;
+  min-width: 30%;
+  background-color: #594545;
+  outline: 1px solid #9e7676;
+  border-radius: 0 0 0 5px;
+  opacity: 0;
+  transition: top 0.5s ease, opacity 0.3s ease;
+}
+.navbar_list.active {
+  top: 7rem;
+  opacity: 1;
 }
 .navbar_item {
   position: relative;
   display: flex;
-  flex-direction: column;
 }
 .navbar_item-link {
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
-  color: #8d9ee4;
-  font-size: 3rem;
   display: flex;
+  text-decoration: none;
+  color: #9e7676;
   justify-content: center;
   align-items: center;
   height: 7rem;
   padding: 0 1rem;
 }
 .navbar_item-link.logo {
+  font-size: 3rem;
   font-weight: 400;
   position: relative;
 }
-.navbar_item-link::after {
-  content: "";
-  width: 2px;
-  height: 150%;
-  background: #8d9ee4;
-  margin-left: 2rem;
-  transform: rotate(25deg);
+.navbar_item-link-text {
+  text-decoration: none;
+  font-size: 2rem;
+  color: #9e7676;
+  display: flex;
+  align-items: center;
 }
-.navbar_item-link:hover .navbar_item-icon {
-  color: #64a771;
+.navbar_item-link-icon {
+  font-size: 2rem;
 }
 .navbar_item-sublogo {
   position: absolute;
   bottom: 0.8rem;
   right: 3rem;
-  color: #8d9ee4;
+  color: #9e7676;
   font-size: 1.3rem;
 }
 .navbar_item-icon {
   margin: auto;
 }
+.navbar_menu {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+.navbar_menu-button {
+  font-size: 3rem;
+  background-color: transparent;
+  color: #9e7676;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+.navbar_menu-button:focus {
+  border-radius: 5px;
+  box-shadow: 2px 2px 1px #9e7676;
+}
 
+@media (min-width: 576px) {
+  .navbar_list {
+    position: relative;
+    top: 0;
+    outline: unset;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    opacity: 1;
+  }
+  .navbar_list.active {
+    top: unset;
+  }
+  .navbar_container {
+    padding: 0 1rem 0 4rem;
+  }
+  .navbar_item {
+    flex-direction: column;
+  }
+  .navbar_item-link {
+    width: 100%;
+    height: 100%;
+    font-size: 3rem;
+    height: 7rem;
+  }
+  .navbar_item-link-text {
+    display: none;
+  }
+  .navbar_item-link.logo {
+    z-index: 500;
+  }
+  .navbar_item-link::after {
+    content: "";
+    width: 2px;
+    height: 110%;
+    background: #9e7676;
+    margin-left: 2rem;
+    transform: rotate(25deg);
+  }
+  .navbar_item-link:hover {
+    color: #fff;
+  }
+  .navbar_item-link-icon {
+    font-size: 3rem;
+  }
+  .navbar_menu {
+    margin-left: unset;
+    display: none;
+  }
+}
 .footer {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 5rem;
-  background-color: #283e78;
+  top: calc(100vh - 5rem);
+  background-color: #594545;
   display: flex;
   justify-content: center;
 }
@@ -105,6 +172,9 @@ body {
 .social {
   display: flex;
   list-style: none;
+  max-width: 80%;
+  margin: auto;
+  justify-content: center;
 }
 .social_item {
   display: flex;
@@ -112,7 +182,7 @@ body {
 }
 .social_link {
   text-decoration: none;
-  color: #64a771;
+  color: #fff;
   padding: 0 1rem;
   display: flex;
   justify-content: center;
@@ -125,27 +195,27 @@ body {
   box-sizing: content-box;
   padding: 5px;
   font-size: 2rem;
-  border: 2px solid #64a771;
+  border: 2px solid #fff;
   border-radius: 20%;
   transition: 0.3s ease all;
 }
 .social_link:hover {
-  color: #283e78;
+  color: #594545;
 }
 .social_link:hover .social_link-icon {
-  border: 2px solid #283e78;
-  background-color: #64a771;
+  border: 2px solid #594545;
+  background-color: #fff;
 }
 
 .loginRegister {
   display: flex;
   flex-direction: column;
-  margin: 2rem 0.5rem;
+  margin: 2rem 0.5rem 7rem;
 }
 .loginRegister_title {
-  background-color: #283e78;
+  background-color: #594545;
   max-height: 2rem;
-  width: 60%;
+  width: 90%;
   padding: 0 1rem;
   border-radius: 0.25rem;
   display: flex;
@@ -155,15 +225,14 @@ body {
   cursor: default;
 }
 .loginRegister_title-text {
-  color: #8d9ee4;
+  color: #9e7676;
   line-height: 2rem;
   font-size: 2rem;
 }
 .loginRegister_body {
-  background-color: #283e78;
+  background-color: #594545;
   margin-top: 3rem;
-  min-height: 15rem;
-  width: 60%;
+  width: 90%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -193,30 +262,32 @@ body {
   box-sizing: content-box;
 }
 .regularLogin_icon {
-  color: #64a771;
-  font-size: 4rem;
+  color: #fff;
+  font-size: 3rem;
   padding: 0.5rem;
-  background-color: #4357c8;
+  background-color: #815b5b;
   border-radius: 1rem;
   min-height: 5rem;
   min-width: 5rem;
   transition: all 0.1s ease;
 }
 .regularLogin_icon:hover {
-  box-shadow: 2px 2px 3px #64a771, -2px -2px 3px #64a771;
+  box-shadow: 2px 2px 3px #fff, -2px -2px 3px #fff;
 }
 .regularLogin_link {
-  color: #64a771;
-  font-size: 3rem;
-  background-color: #4357c8;
+  line-height: 4rem;
+  text-align: center;
+  color: #fff;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  background-color: #815b5b;
   border-radius: 1rem;
   padding: 0.5rem 3rem;
   text-decoration: none;
-  text-align: center;
   transition: all 0.1s ease;
 }
 .regularLogin_link:hover {
-  box-shadow: 1px 1px 2px #64a771;
+  box-shadow: 1px 1px 2px #fff;
 }
 
 .otherLogins {
@@ -225,7 +296,7 @@ body {
   margin-top: 2rem;
 }
 .otherLogins_title {
-  color: #64a771;
+  color: #fff;
 }
 .otherLogins_flex {
   display: flex;
@@ -235,8 +306,8 @@ body {
 .otherLogins_flex-item {
   display: flex;
   align-items: center;
-  background-color: #4357c8;
-  color: #8d9ee4;
+  background-color: #815b5b;
+  color: #9e7676;
   border-radius: 1rem;
   font-size: 3.5rem;
   padding: 0.8rem;
@@ -244,20 +315,25 @@ body {
   cursor: pointer;
 }
 .otherLogins_flex-item:hover {
-  color: #64a771;
-  outline: 1px dashed #64a771;
+  color: #fff;
+  outline: 1px dashed #fff;
 }
 
 .separator {
   width: 100%;
   height: 1px;
-  background-color: #8d9ee4;
+  background-color: #9e7676;
 }
 .separator_legend {
-  color: #8d9ee4;
+  color: #9e7676;
   margin: -2rem 0;
 }
 
+@media (min-width: 576px) {
+  .regularLogin_link {
+    font-size: 3rem;
+  }
+}
 .login {
   display: flex;
   flex-direction: column;
@@ -266,19 +342,20 @@ body {
 .login_picture {
   align-self: center;
   font-size: 5rem;
-  background-color: #8d9ee4;
-  color: #283e78;
+  background-color: #9e7676;
+  color: #594545;
   border-radius: 0.5rem;
-  margin: 1.5rem 0;
   padding: 0.5rem;
 }
 .login_form {
   display: flex;
   flex-direction: column;
+  margin: auto;
+  max-width: 80%;
   gap: 2rem;
 }
 .login_form-legend {
-  color: #64a771;
+  color: #fff8ea;
   text-decoration: none;
 }
 .login_form-legend:hover {
@@ -292,8 +369,8 @@ body {
 
 .input {
   text-align: center;
-  background-color: #8d9ee4;
-  color: #283e78;
+  background-color: #9e7676;
+  color: #fff8ea;
   border: none;
   outline: none;
   font-size: 2.5rem;
@@ -301,10 +378,13 @@ body {
   border-radius: 0.5rem;
   padding: 0.25rem 0;
 }
+.input::placeholder {
+  color: #fff8ea;
+}
 
 .button {
-  background-color: #4357c8;
-  color: #64a771;
+  background-color: #815b5b;
+  color: #fff;
   padding: 0 0.25rem;
   font-size: 3rem;
   border: none;
@@ -313,7 +393,95 @@ body {
   font-family: "Handlee", cursive;
 }
 .button:hover {
-  box-shadow: 1px 1px 3px #64a771, -1px -1px 3px #64a771;
+  box-shadow: 1px 1px 3px #fff, -1px -1px 3px #fff;
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+}
+.search_form {
+  margin: 2rem 0;
+  display: flex;
+  gap: 5%;
+}
+.search_form-text {
+  max-width: 70%;
+  line-height: 3rem;
+  font-size: 2rem;
+  border: none;
+  outline: none;
+  border-radius: 0.5rem;
+  background-color: #9e7676;
+  color: #fff8ea;
+  padding: 0 1rem;
+}
+.search_form-button {
+  max-width: 30%;
+  padding: 0 1rem;
+  background-color: #9e7676;
+  color: #fff8ea;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  outline: none;
+  cursor: pointer;
+}
+.search_result {
+  margin: 2rem 0 7rem;
+}
+.search_result-video {
+  max-width: 100%;
+  min-width: 250px;
+}
+.search_result-text {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  color: #594545;
+  font-weight: 700;
+}
+
+.categories {
+  margin: 2.5rem 0;
+}
+.categories_title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #594545;
+  margin-bottom: 1rem;
+}
+.categories_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  max-height: 3rem;
+  transition: all 0.3s ease;
+}
+.categories_grid-item {
+  background-color: #9e7676;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+}
+.categories_grid-item-title {
+  font-size: 2rem;
+  color: #fff8ea;
+  font-weight: 300;
+}
+.categories_grid-item-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.categories_grid-item-word {
+  color: #fff;
+  line-height: 1.5rem;
+  text-decoration: underline;
+  display: none;
+}
+.categories_grid-item:hover {
+  max-height: 30rem;
 }
 
 /*# sourceMappingURL=index.css.map */

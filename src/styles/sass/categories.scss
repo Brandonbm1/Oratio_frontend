@@ -1,0 +1,44 @@
+.categories {
+  margin: 2.5rem 0;
+  &_title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: $colorPrincipal;
+    margin-bottom: 1rem;
+  }
+  &_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    max-height: 3rem;
+    transition: all 0.3s ease;
+    // overflow: hidden;
+    &-item {
+      background-color: $colorSecundario;
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+      text-decoration: none;
+
+      &-title {
+        font-size: 2rem;
+        color: $backgroundColor;
+        font-weight: 300;
+      }
+      &-list {
+        list-style: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      &-word {
+        color: $actionColor;
+        line-height: 1.5rem;
+        text-decoration: underline;
+        display: none;
+      }
+      &:hover {
+        max-height: 30rem;
+      }
+    }
+  }
+}

@@ -4,7 +4,7 @@ export const NavbarDetails = ({ id }) => {
       <section className="">
         <div className="photo"></div>
         <div className="buttons">
-          <button className="navbar_details"></button>
+          <button className="navbar_details-button"></button>
         </div>
       </section>
       <div className="list"></div>

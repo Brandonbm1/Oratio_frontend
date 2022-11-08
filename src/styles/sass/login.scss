@@ -9,15 +9,16 @@
     background-color: $colorSecundario;
     color: $colorPrincipal;
     border-radius: 0.5rem;
-    margin: 1.5rem 0;
     padding: 0.5rem;
   }
   &_form {
     display: flex;
     flex-direction: column;
+    margin: auto;
+    max-width: 80%;
     gap: 2rem;
     &-legend {
-      color: $actionColor;
+      color: $backgroundColor;
       text-decoration: none;
       &:hover {
         text-decoration: underline;
@@ -32,13 +33,16 @@
 .input {
   text-align: center;
   background-color: $colorSecundario;
-  color: $colorPrincipal;
+  color: $backgroundColor;
   border: none;
   outline: none;
   font-size: 2.5rem;
   line-height: 2.5rem;
   border-radius: 0.5rem;
   padding: 0.25rem 0;
+  &::placeholder {
+    color: $backgroundColor;
+  }
 }
 .button {
   background-color: $colorTerciario;

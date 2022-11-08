@@ -1,5 +1,6 @@
 import LoginRegisterLayout from "../component/LoginRegisterLayout";
 import { FaClipboardList } from "react-icons/fa";
+import { Link } from "react-router-dom";
 const Register = () => {
   return (
     <LoginRegisterLayout>
@@ -48,6 +49,16 @@ const Register = () => {
             value="Crear cuenta"
           />
         </form>
+        <span
+          className="legend separator_legend"
+          style={{ marginTop: ".5rem" }}
+        >
+          ¿Ya estas registrado?
+          <Link to="/login" className="legend login_form-legend">
+            {" "}
+            Inicia Sesión
+          </Link>
+        </span>
       </div>
     </LoginRegisterLayout>
   );

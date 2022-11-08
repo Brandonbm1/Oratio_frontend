@@ -3,11 +3,11 @@
 .loginRegister {
   display: flex;
   flex-direction: column;
-  margin: 2rem 0.5rem;
+  margin: 2rem 0.5rem 7rem;
   &_title {
     background-color: $colorPrincipal;
     max-height: 2rem;
-    width: 60%;
+    width: 90%;
     padding: 0 1rem;
     border-radius: 0.25rem;
     display: flex;
@@ -24,8 +24,8 @@
   &_body {
     background-color: $colorPrincipal;
     margin-top: 3rem;
-    min-height: 15rem;
-    width: 60%;
+    // min-height: 15rem;
+    width: 90%;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -18,7 +18,7 @@
   box-sizing: content-box;
   &_icon {
     color: $actionColor;
-    font-size: 4rem;
+    font-size: 3rem;
     padding: 0.5rem;
     background-color: $colorTerciario;
     border-radius: 1rem;
@@ -30,13 +30,18 @@
     }
   }
   &_link {
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    line-height: 4rem;
+    text-align: center;
     color: $actionColor;
-    font-size: 3rem;
+    font-size: 2rem;
+    letter-spacing: 1px;
     background-color: $colorTerciario;
     border-radius: 1rem;
     padding: 0.5rem 3rem;
     text-decoration: none;
-    text-align: center;
     transition: all 0.1s ease;
     &:hover {
       box-shadow: 1px 1px 2px $actionColor;
@@ -80,5 +85,13 @@
   &_legend {
     color: $colorSecundario;
     margin: -2rem 0;
+  }
+}
+
+@media (min-width: 576px) {
+  .regularLogin {
+    &_link {
+      font-size: 3rem;
+    }
   }
 }

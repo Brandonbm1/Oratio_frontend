@@ -6,19 +6,20 @@
 .login_picture {
   align-self: center;
   font-size: 5rem;
-  background-color: #8d9ee4;
-  color: #283e78;
+  background-color: #9e7676;
+  color: #594545;
   border-radius: 0.5rem;
-  margin: 1.5rem 0;
   padding: 0.5rem;
 }
 .login_form {
   display: flex;
   flex-direction: column;
+  margin: auto;
+  max-width: 80%;
   gap: 2rem;
 }
 .login_form-legend {
-  color: #64a771;
+  color: #fff8ea;
   text-decoration: none;
 }
 .login_form-legend:hover {
@@ -32,8 +33,8 @@
 
 .input {
   text-align: center;
-  background-color: #8d9ee4;
-  color: #283e78;
+  background-color: #9e7676;
+  color: #fff8ea;
   border: none;
   outline: none;
   font-size: 2.5rem;
@@ -41,10 +42,13 @@
   border-radius: 0.5rem;
   padding: 0.25rem 0;
 }
+.input::placeholder {
+  color: #fff8ea;
+}
 
 .button {
-  background-color: #4357c8;
-  color: #64a771;
+  background-color: #815b5b;
+  color: #fff;
   padding: 0 0.25rem;
   font-size: 3rem;
   border: none;
@@ -53,7 +57,7 @@
   font-family: "Handlee", cursive;
 }
 .button:hover {
-  box-shadow: 1px 1px 3px #64a771, -1px -1px 3px #64a771;
+  box-shadow: 1px 1px 3px #fff, -1px -1px 3px #fff;
 }
 
 /*# sourceMappingURL=login.css.map */
