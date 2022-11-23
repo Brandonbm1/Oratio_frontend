@@ -32,6 +32,7 @@
   box-shadow: 2px 2px 3px #fff, -2px -2px 3px #fff;
 }
 .regularLogin_link {
+  display: flex;
   line-height: 4rem;
   text-align: center;
   color: #fff;

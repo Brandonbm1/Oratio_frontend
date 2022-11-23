@@ -1,0 +1,49 @@
+@import "variables";
+
+.adminModule {
+  width: 100%;
+  text-align: center;
+  &_header {
+    // width: 100%;
+    margin: 1rem 0;
+    &-title {
+      font-size: 2rem;
+      text-transform: uppercase;
+    }
+  }
+  &_body {
+    margin: 1rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+    &-item {
+      background-color: $colorSecundario;
+      font-size: 1.5rem;
+      color: $textColor;
+      padding: 0.5rem 0;
+      cursor: pointer;
+      border: 1px solid $colorPrincipal;
+      border-radius: 0.5rem;
+      text-transform: uppercase;
+      &:hover {
+        background-color: $backgroundColor;
+        color: $colorSecundario;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  .adminModule {
+    &_body {
+      grid-template-columns: repeat(2, minmax(250px, 1fr));
+      // justify-content: center;
+      &-item {
+        min-width: 250px;
+        justify-self: center;
+      }
+    }
+  }
+}

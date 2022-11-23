@@ -1,6 +1,4 @@
-*,
-::after,
-::before {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -21,10 +19,11 @@ body {
   padding: 0 3rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 576px) {
   .container {
-    max-width: 80%;
-    min-width: 60%;
+    min-width: 80%;
+    display: flex;
+    justify-content: center;
   }
 }
 

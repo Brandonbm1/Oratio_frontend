@@ -16,7 +16,8 @@
     outline: 1px solid $colorSecundario;
     border-radius: 0 0 0 5px;
     opacity: 0;
-    transition: top 0.5s ease, opacity 0.3s ease;
+    transition: top 0.4s ease;
+    z-index: 150;
     &.active {
       top: 7rem;
       opacity: 1;
@@ -39,6 +40,7 @@
         font-size: 3rem;
         font-weight: 400;
         position: relative;
+        color: #fff;
       }
 
       &-text {
@@ -56,7 +58,7 @@
       position: absolute;
       bottom: 0.8rem;
       right: 3rem;
-      color: $colorSecundario;
+      color: $backgroundColor;
       font-size: 1.3rem;
     }
 
@@ -83,6 +85,23 @@
         box-shadow: 2px 2px 1px $colorSecundario;
       }
     }
+  }
+}
+@keyframes shake {
+  0% {
+    transform: rotateX(-10deg);
+  }
+  25% {
+    transform: rotateX(10deg);
+  }
+  50% {
+    transform: rotate(-6deg);
+  }
+  75% {
+    transform: rotate(6deg);
+  }
+  100% {
+    transform: rotate(0);
   }
 }
 
@@ -127,6 +146,15 @@
         }
         &:hover {
           color: $actionColor;
+
+          & .navbar_item-link-icon {
+            transform: scale(1.2);
+          }
+        }
+        &.active:hover {
+          & .navbar_item-link-icon {
+            transform: scale(1);
+          }
         }
         &-icon {
           font-size: 3rem;

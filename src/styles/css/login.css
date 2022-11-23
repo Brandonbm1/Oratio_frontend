@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  padding: 1rem 2rem;
 }
 .login_picture {
   align-self: center;
@@ -12,6 +13,7 @@
   padding: 0.5rem;
 }
 .login_form {
+  position: relative;
   display: flex;
   flex-direction: column;
   margin: auto;
@@ -25,6 +27,31 @@
 .login_form-legend:hover {
   text-decoration: underline;
 }
+.login_form-section {
+  display: flex;
+  flex-direction: column;
+}
+.login_form-label {
+  font-size: 1.5rem;
+  color: #fff8ea;
+}
+.login_form-alert {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: red;
+}
+
+.form_error {
+  background-color: #ff9292;
+  color: red;
+  grid-column: 1/-1;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 0.25rem 0;
+  border-radius: 5px;
+}
 
 .legend {
   font-size: 1.2rem;
@@ -32,25 +59,25 @@
 }
 
 .input {
-  text-align: center;
+  width: 100%;
   background-color: #9e7676;
   color: #fff8ea;
   border: none;
   outline: none;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   line-height: 2.5rem;
   border-radius: 0.5rem;
-  padding: 0.25rem 0;
+  padding: 0.25rem 1rem;
 }
 .input::placeholder {
-  color: #fff8ea;
+  color: rgba(255, 248, 234, 0.6);
 }
 
 .button {
   background-color: #815b5b;
   color: #fff;
-  padding: 0 0.25rem;
-  font-size: 3rem;
+  padding: 0.5rem;
+  font-size: 2.5rem;
   border: none;
   cursor: pointer;
   border-radius: 0.5rem;
@@ -58,6 +85,25 @@
 }
 .button:hover {
   box-shadow: 1px 1px 3px #fff, -1px -1px 3px #fff;
+}
+
+@media (min-width: 768px) {
+  .register {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
+  .login_form-alert {
+    font-size: 1.2rem;
+  }
+  .register_form-button {
+    grid-column: 1/-1;
+  }
+  .legend {
+    grid-column: 1/-1;
+  }
+  .input {
+    font-size: 2.5rem;
+  }
 }
 
 /*# sourceMappingURL=login.css.map */

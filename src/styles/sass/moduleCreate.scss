@@ -1,0 +1,68 @@
+@import "variables";
+.module_create {
+  padding: 1.5rem 0.5rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  margin-top: 0.5rem;
+  background-color: $colorSecundario;
+  overflow: hidden;
+  max-height: 0;
+  transition: 0.3s ease all;
+  &-form {
+    display: none;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    position: relative;
+    top: -100rem;
+    transition: 0.3s ease top;
+
+    &-section {
+      display: flex;
+      flex-direction: column;
+      text-align: start;
+      &-label {
+        text-transform: capitalize;
+        font-size: 1.2rem;
+        color: $textColor;
+      }
+      &-input {
+        padding: 0.5rem;
+        border: none;
+        outline: none;
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: $colorPrincipal;
+        background-color: $backgroundColor;
+      }
+      &-button {
+        border: none;
+        outline: none;
+        background-color: $backgroundColor;
+        color: $colorSecundario;
+        border: 2px solid $colorSecundario;
+        border-radius: 0.5rem;
+        font-size: 1.4rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        grid-column: 1/-1;
+        padding: 0.5rem 2rem;
+        min-width: 60%;
+        justify-self: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        &:hover {
+          background-color: $colorSecundario;
+          box-shadow: 2px 1px 3px $textColor inset,
+            -2px -1px 3px $textColor inset;
+          color: $textColor;
+        }
+      }
+    }
+  }
+  &.open {
+    max-height: none;
+  }
+  &.open &-form {
+    display: grid;
+    top: 0rem;
+  }
+}

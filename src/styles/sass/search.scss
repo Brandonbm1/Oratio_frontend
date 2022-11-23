@@ -11,36 +11,68 @@
       max-width: 70%;
       line-height: 3rem;
       font-size: 2rem;
-      border: none;
+
       outline: none;
-      border-radius: 0.5rem;
-      background-color: $colorSecundario;
-      color: $backgroundColor;
       padding: 0 1rem;
+      border: 1px solid rgba($colorSecundario, $alpha: 0.4);
     }
     &-button {
       max-width: 30%;
       padding: 0 1rem;
       background-color: $colorSecundario;
-      color: $backgroundColor;
+      color: $textColor;
       font-size: 1.5rem;
-      border: none;
-      border-radius: 0.5rem;
+      border: 1px solid $colorSecundario;
       outline: none;
+      transition: 0.2s ease all;
       cursor: pointer;
+      &:hover {
+        background-color: $textColor;
+        color: $colorSecundario;
+        font-weight: 700;
+      }
     }
   }
   &_result {
     margin: 2rem 0 7rem;
-    &-video {
-      max-width: 100%;
-      min-width: 250px;
+    &_section {
+      &-video {
+        max-width: 100%;
+        min-width: 250px;
+      }
+      &-text {
+        font-size: 1.5rem;
+        text-transform: capitalize;
+        color: $colorPrincipal;
+        font-weight: 700;
+      }
     }
-    &-text {
-      font-size: 1.5rem;
-      text-transform: capitalize;
-      color: $colorPrincipal;
-      font-weight: 700;
+  }
+}
+@media (min-width: 576px) {
+  .search {
+    width: 100%;
+    &_form {
+      justify-content: center;
+      &-text {
+        // font-size: 3rem;
+        padding: 1rem 2rem;
+      }
+      &-button {
+        font-size: 2rem;
+      }
+    }
+    &_result {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(3, minmax(100px, 400px));
+      &_section {
+        display: flex;
+        flex-direction: column;
+        &-video {
+          min-width: unset;
+        }
+      }
     }
   }
 }

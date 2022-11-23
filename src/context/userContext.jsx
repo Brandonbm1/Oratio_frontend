@@ -1,5 +1,5 @@
-import { useContext, createContext, useState } from "react";
-import { login, register } from "../api/auth.api";
+import { useContext, createContext, useState, useEffect } from "react";
+import { login, register, isAdmin } from "../api/auth.api";
 
 const UserContext = createContext();
 
@@ -13,11 +13,35 @@ export const useUser = () => {
 
 export const UserContextProvider = ({ children }) => {
   const [isAuth, setIsAuth] = useState(false);
+  const [isAdministrator, setIsAdministrator] = useState(false);
+
+  const adminValidator = async (token) => {
+    const response = await isAdmin(token);
+    setIsAdministrator(response);
+  };
+
+  useEffect(() => {
+    const tok = localStorage.getItem("token");
+    if (tok) {
+      setIsAuth(true);
+      adminValidator(tok);
+    }
+  }, []);
+
   const LogIn = async (credentials) => {
     try {
-      return await login(credentials);
+      const response = await login(credentials);
+      if (response.token) {
+        localStorage.setItem("token", response.token);
+        localStorage.setItem("username", response.user.usuario);
+        localStorage.setItem("id", response.user.id);
+        setIsAuth(true);
+      }
+      const res = await isAdmin(response.token);
+      setIsAdministrator(res);
+      return response;
     } catch (error) {
-      console.log(error.message);
+      console.error(error.message);
     }
   };
 
@@ -25,7 +49,7 @@ export const UserContextProvider = ({ children }) => {
     try {
       return await register(user);
     } catch (error) {
-      console.log(error.message);
+      console.error(error.message);
     }
   };
 
@@ -33,9 +57,20 @@ export const UserContextProvider = ({ children }) => {
     localStorage.removeItem("token");
     localStorage.removeItem("username");
     localStorage.removeItem("id");
+    setIsAuth(false);
+    setIsAdministrator(false);
   };
   return (
-    <UserContext.Provider value={{ isAuth, LogIn, Register, LogOut }}>
+    <UserContext.Provider
+      value={{
+        isAuth,
+        isAdministrator,
+        LogIn,
+        Register,
+        LogOut,
+        adminValidator,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );

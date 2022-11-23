@@ -1,0 +1,44 @@
+.adminModule {
+  width: 100%;
+  text-align: center;
+}
+.adminModule_header {
+  margin: 1rem 0;
+}
+.adminModule_header-title {
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+.adminModule_body {
+  margin: 1rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.adminModule_body-item {
+  background-color: #9e7676;
+  font-size: 1.5rem;
+  color: #fff8ea;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  border: 1px solid #594545;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+}
+.adminModule_body-item:hover {
+  background-color: #fff8ea;
+  color: #9e7676;
+  font-weight: 700;
+}
+
+@media (min-width: 576px) {
+  .adminModule_body {
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+  }
+  .adminModule_body-item {
+    min-width: 250px;
+    justify-self: center;
+  }
+}
+
+/*# sourceMappingURL=adminMudule.css.map */

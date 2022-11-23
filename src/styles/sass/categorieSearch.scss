@@ -1,0 +1,139 @@
+@import "variables";
+
+.categorieSearch {
+  padding: 2.5rem 0;
+  min-width: 90%;
+  &_header {
+    margin-bottom: 1rem;
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    gap: 1rem;
+    &-back {
+      background-color: $colorSecundario;
+      width: 3rem;
+      height: 3rem;
+      align-self: top;
+      transform: rotate(180deg);
+      color: $textColor;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      border-radius: 0.5rem;
+      border: 1px solid $colorSecundario;
+      transition: all 0.3s ease;
+      &:hover {
+        background-color: $backgroundColor;
+        color: $colorSecundario;
+      }
+    }
+    &-title {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    &-form {
+      display: flex;
+      gap: 5%;
+      &-text {
+        border: 1px solid rgba($colorSecundario, $alpha: 0.4);
+        outline: none;
+        padding: 1rem 2rem;
+        font-size: 1.5rem;
+        max-width: 65%;
+      }
+      &-button {
+        background-color: $colorSecundario;
+        border: 2px solid $colorSecundario;
+        color: $textColor;
+        font-size: 1.5rem;
+        padding: 1rem 2rem;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        &:hover {
+          background-color: $textColor;
+          color: $colorSecundario;
+        }
+      }
+    }
+  }
+  &_body {
+    position: relative;
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 3rem;
+    overflow: hidden;
+    padding: 2rem;
+    scroll-behavior: smooth;
+    &-button {
+      position: absolute;
+      right: 3rem;
+      top: 1rem;
+      height: 3rem;
+      padding: 0.5rem;
+      color: $textColor;
+      border: 1px solid $colorSecundario;
+      font-size: 2rem;
+      background-color: $colorSecundario;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transform: rotate(180deg);
+      transition: all 0.3s ease;
+      &:hover {
+        background-color: $backgroundColor;
+        color: $colorSecundario;
+      }
+    }
+    &-list {
+      list-style: none;
+      max-height: 55vh;
+      overflow-y: scroll;
+      min-width: 100%;
+
+      &-item {
+        text-transform: capitalize;
+        font-size: 2rem;
+        padding: 1.5rem 0;
+        transition: 0.2s ease background, 0.2s ease color;
+        &:hover {
+          background-color: #dedede78;
+        }
+        &.open {
+          background-color: $colorTerciario;
+          color: $textColor;
+        }
+      }
+    }
+    &-result {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 4rem 2rem;
+      justify-content: center;
+
+      &-item {
+        width: 25rem;
+        margin-bottom: 2rem;
+        &-img {
+          max-width: 20rem;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  .categorieSearch {
+    &_body {
+      &-button {
+        display: none;
+      }
+      &-list {
+        min-width: 40rem;
+      }
+      &-result {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+    }
+  }
+}

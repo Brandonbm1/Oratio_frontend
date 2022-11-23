@@ -1,0 +1,67 @@
+.module_create {
+  padding: 1.5rem 0.5rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  margin-top: 0.5rem;
+  background-color: #9e7676;
+  overflow: hidden;
+  max-height: 0;
+  transition: 0.3s ease all;
+}
+.module_create-form {
+  display: none;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  position: relative;
+  top: -100rem;
+  transition: 0.3s ease top;
+}
+.module_create-form-section {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+.module_create-form-section-label {
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  color: #fff8ea;
+}
+.module_create-form-section-input {
+  padding: 0.5rem;
+  border: none;
+  outline: none;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #594545;
+  background-color: #fff8ea;
+}
+.module_create-form-section-button {
+  border: none;
+  outline: none;
+  background-color: #fff8ea;
+  color: #9e7676;
+  border: 2px solid #9e7676;
+  border-radius: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  grid-column: 1/-1;
+  padding: 0.5rem 2rem;
+  min-width: 60%;
+  justify-self: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.module_create-form-section-button:hover {
+  background-color: #9e7676;
+  box-shadow: 2px 1px 3px #fff8ea inset, -2px -1px 3px #fff8ea inset;
+  color: #fff8ea;
+}
+.module_create.open {
+  max-height: none;
+}
+.module_create.open .module_create-form {
+  display: grid;
+  top: 0rem;
+}
+
+/*# sourceMappingURL=moduleCreate.css.map */

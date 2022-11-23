@@ -1,16 +1,20 @@
-import { ImHome3 } from "react-icons/im";
-import { FiSearch } from "react-icons/fi";
+import { FiSearch, FiSettings } from "react-icons/fi";
 import { BsBookHalf } from "react-icons/bs";
 import { IoMdPerson } from "react-icons/io";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
-import { NavbarDetails } from "./NavbarDetails";
+import { FaFolder } from "react-icons/fa";
+import { SlLogout } from "react-icons/sl";
+
 import { NavLink } from "react-router-dom";
 import { useState, useRef } from "react";
+
+import { useUser } from "../context/userContext";
+
 const Navbar = () => {
   const [isListOpen, setIsListOpen] = useState(false);
-  const details = useRef(null);
   const list = useRef(null);
 
+  const { isAuth, LogOut, isAdministrator } = useUser();
   const handleOpenList = (e) => {
     if (isListOpen) {
       list.current.classList.remove("active");
@@ -23,13 +27,14 @@ const Navbar = () => {
 
   const activeStyle = {
     color: "#fff",
+    animation: "shake 1.5s ease",
   };
   return (
     <nav className="navbar">
       <div className="container">
         <div className="navbar_container">
           <span className="navbar_item">
-            <NavLink to="/home" className="navbar_item-link logo">
+            <NavLink to="/api/search" className="navbar_item-link logo">
               ORATIO
               <p className="navbar_item-sublogo">LSC</p>
             </NavLink>
@@ -37,30 +42,14 @@ const Navbar = () => {
           <ul className="navbar_list" ref={list}>
             <li className="navbar_item" onClick={handleOpenList}>
               <NavLink
-                to="/home"
+                to="/api/search"
                 className="navbar_item-link"
                 style={({ isActive }) => (isActive ? activeStyle : undefined)}
               >
-                <ImHome3 className="navbar_item-link-icon" />
+                <FiSearch className="navbar_item-link-icon" title="Buscar" />
               </NavLink>
               <NavLink
-                to="/home"
-                className="navbar_item-link-text"
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-              >
-                Home
-              </NavLink>
-            </li>
-            <li className="navbar_item" onClick={handleOpenList}>
-              <NavLink
-                to="/search"
-                className="navbar_item-link"
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-              >
-                <FiSearch className="navbar_item-link-icon" />
-              </NavLink>
-              <NavLink
-                to="/search"
+                to="/api/search"
                 className="navbar_item-link-text"
                 style={({ isActive }) => (isActive ? activeStyle : undefined)}
               >
@@ -69,35 +58,109 @@ const Navbar = () => {
             </li>
             <li className="navbar_item" onClick={handleOpenList}>
               <NavLink
-                to="/course"
+                to="/api/category"
                 className="navbar_item-link"
                 style={({ isActive }) => (isActive ? activeStyle : undefined)}
               >
-                <BsBookHalf className="navbar_item-link-icon" />
+                <FaFolder className="navbar_item-link-icon" title="Categoria" />
               </NavLink>
               <NavLink
-                to="/course"
+                to="/api/category"
+                className="navbar_item-link-text"
+                style={({ isActive }) => (isActive ? activeStyle : undefined)}
+              >
+                Categoria
+              </NavLink>
+            </li>
+            <li className="navbar_item" onClick={handleOpenList}>
+              <NavLink
+                to="/api/course"
+                className="navbar_item-link"
+                style={({ isActive }) => (isActive ? activeStyle : undefined)}
+              >
+                <BsBookHalf className="navbar_item-link-icon" title="Cursos" />
+              </NavLink>
+              <NavLink
+                to="/api/course"
                 className="navbar_item-link-text"
                 style={({ isActive }) => (isActive ? activeStyle : undefined)}
               >
                 Cursos
               </NavLink>
             </li>
+            {isAuth && isAdministrator && (
+              <li className="navbar_item" onClick={handleOpenList}>
+                <NavLink
+                  to="/api/adminModule"
+                  className="navbar_item-link"
+                  style={({ isActive }) => (isActive ? activeStyle : undefined)}
+                >
+                  <FiSettings
+                    className="navbar_item-link-icon"
+                    title="Administrador"
+                  />
+                </NavLink>
+                <NavLink
+                  to="/api/adminModule"
+                  className="navbar_item-link-text"
+                  style={({ isActive }) => (isActive ? activeStyle : undefined)}
+                >
+                  Administrador
+                </NavLink>
+              </li>
+            )}
             <li className="navbar_item" onClick={handleOpenList}>
-              <NavLink
-                to="/profile"
-                className="navbar_item-link"
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-              >
-                <IoMdPerson className="navbar_item-link-icon" />
-              </NavLink>
-              <NavLink
-                to="/profile"
-                className="navbar_item-link-text"
-                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-              >
-                Perfil
-              </NavLink>
+              {!isAuth && (
+                <>
+                  <NavLink
+                    to="/auth/login"
+                    className="navbar_item-link"
+                    style={({ isActive }) =>
+                      isActive ? activeStyle : undefined
+                    }
+                  >
+                    <IoMdPerson
+                      className="navbar_item-link-icon"
+                      title="Perfil"
+                    />
+                  </NavLink>
+                  <NavLink
+                    to="/auth/login"
+                    className="navbar_item-link-text"
+                    style={({ isActive }) =>
+                      isActive ? activeStyle : undefined
+                    }
+                  >
+                    Perfil
+                  </NavLink>
+                </>
+              )}
+              {isAuth && (
+                <>
+                  <NavLink
+                    to="/auth/login"
+                    className="navbar_item-link"
+                    style={({ isActive }) =>
+                      isActive ? activeStyle : undefined
+                    }
+                    onClick={LogOut}
+                  >
+                    <SlLogout
+                      className="navbar_item-link-icon"
+                      title="Perfil"
+                    />
+                  </NavLink>
+                  <NavLink
+                    to="/auth/login"
+                    className="navbar_item-link-text"
+                    style={({ isActive }) =>
+                      isActive ? activeStyle : undefined
+                    }
+                  >
+                    Perfil
+                  </NavLink>
+                </>
+              )}
             </li>
           </ul>
           <section className="navbar_menu">

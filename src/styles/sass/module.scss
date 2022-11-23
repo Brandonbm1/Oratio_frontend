@@ -1,0 +1,94 @@
+@import "variables";
+
+.module {
+  position: relative;
+  margin-top: 2rem;
+  padding-right: 3rem;
+  max-width: 80%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+
+  &_header {
+    display: flex;
+    justify-content: space-between;
+    &-title {
+      font-size: 2rem;
+      text-transform: uppercase;
+      color: $colorPrincipal;
+      font-weight: 900;
+    }
+    &-add {
+      // border: 2px solid $colorSecundario;
+      border: none;
+      outline: 1px solid $colorSecundario;
+      padding: 0 2rem;
+      background-color: $colorSecundario;
+      color: $textColor;
+      font-weight: 200;
+      font-size: 2rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      &:hover {
+        background-color: $textColor;
+        color: $colorSecundario;
+        font-weight: 700;
+      }
+    }
+  }
+  &_body {
+    margin-top: 2rem;
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 7rem;
+      &-item {
+        display: grid;
+        align-items: center;
+        text-align: start;
+        gap: 1rem;
+        grid-template-columns: 1fr 0.2fr;
+        padding: 0.5rem 2rem;
+        border-radius: 0.5rem;
+        justify-content: space-between;
+        background-color: $colorSecundario;
+        overflow: hidden;
+        &-text {
+          position: relative;
+          font-size: 2rem;
+          text-decoration: underline;
+          color: $textColor;
+
+          &::after {
+            position: absolute;
+            right: 0;
+            top: -1rem;
+            content: "";
+            min-height: 500%;
+            width: 1px;
+            background-color: $backgroundColor;
+          }
+        }
+        &-button {
+          font-size: 2rem;
+          color: $colorSecundario;
+          background-color: $textColor;
+          border: 1px solid $textColor;
+          border-radius: 0.5rem;
+          position: relative;
+          max-width: 80%;
+          left: 50%;
+          transform: translateX(-50%);
+          cursor: pointer;
+          transition: 0.3s all ease;
+          &:hover {
+            background-color: $colorSecundario;
+            color: $textColor;
+          }
+        }
+      }
+    }
+  }
+}

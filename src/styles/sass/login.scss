@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  padding: 1rem 2rem;
   &_picture {
     align-self: center;
     font-size: 5rem;
@@ -12,11 +13,13 @@
     padding: 0.5rem;
   }
   &_form {
+    position: relative;
     display: flex;
     flex-direction: column;
     margin: auto;
     max-width: 80%;
     gap: 2rem;
+
     &-legend {
       color: $backgroundColor;
       text-decoration: none;
@@ -24,36 +27,80 @@
         text-decoration: underline;
       }
     }
+    &-section {
+      display: flex;
+      flex-direction: column;
+    }
+    &-label {
+      font-size: 1.5rem;
+      color: $textColor;
+    }
+    &-alert {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      font-weight: 500;
+      color: red;
+    }
   }
+}
+.form_error {
+  background-color: #ff9292;
+  color: red;
+  grid-column: 1/-1;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 0.25rem 0;
+  border-radius: 5px;
 }
 .legend {
   font-size: 1.2rem;
   text-align: center;
 }
 .input {
-  text-align: center;
+  // text-align: center;
+  width: 100%;
   background-color: $colorSecundario;
   color: $backgroundColor;
   border: none;
   outline: none;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   line-height: 2.5rem;
   border-radius: 0.5rem;
-  padding: 0.25rem 0;
+  padding: 0.25rem 1rem;
   &::placeholder {
-    color: $backgroundColor;
+    color: rgba($color: $backgroundColor, $alpha: 0.6);
   }
 }
 .button {
   background-color: $colorTerciario;
   color: $actionColor;
-  padding: 0 0.25rem;
-  font-size: 3rem;
+  padding: 0.5rem;
+  font-size: 2.5rem;
   border: none;
   cursor: pointer;
   border-radius: 0.5rem;
   font-family: "Handlee", cursive;
   &:hover {
     box-shadow: 1px 1px 3px $actionColor, -1px -1px 3px $actionColor;
+  }
+}
+
+@media (min-width: 768px) {
+  .register {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
+  .login_form-alert {
+    font-size: 1.2rem;
+  }
+  .register_form-button {
+    grid-column: 1/-1;
+  }
+  .legend {
+    grid-column: 1/-1;
+  }
+  .input {
+    font-size: 2.5rem;
   }
 }
